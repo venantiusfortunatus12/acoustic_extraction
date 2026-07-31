@@ -73,9 +73,9 @@ def extract_from_pair(
     textgrid  = read_textgrid(textgrid_path)
     tier      = get_tier_case_insensitive(textgrid, tier_name)
 
-    pitch     = sound.to_pitch_ac(time_step=0.0, pitch_floor=pitch_floor, pitch_ceiling=pitch_ceiling)
+    pitch     = sound.to_pitch_ac(time_step=None, pitch_floor=pitch_floor, pitch_ceiling=pitch_ceiling)
     intensity = sound.to_intensity()
-    formant   = sound.to_formant_burg(time_step=0.0, max_number_of_formants=n_formants, maximum_formant=max_formant)
+    formant   = sound.to_formant_burg(time_step=None, max_number_of_formants=n_formants, maximum_formant=max_formant)
 
     rows: list[dict[str, Any]] = []
 
@@ -226,3 +226,4 @@ if st.button("Run extraction"):
         "segment_acoustics.csv",
         "text/csv"
     )
+    
